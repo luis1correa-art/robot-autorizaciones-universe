@@ -1,0 +1,188 @@
+FLUJO DE AUTOMATIZACIÓN RPA
+============================
+
+Tecnología:
+Microsoft Power Automate Desktop
+
+Objetivo:
+Automatizar la carga, clasificación y control de documentos PDF
+en un sistema institucional de gestión documental.
+
+
+1. INICIALIZACIÓN
+-----------------
+
+- Iniciar Microsoft Edge.
+- Preparar el entorno del sistema documental.
+- Mostrar instrucciones al usuario para iniciar el proceso.
+
+
+2. SELECCIÓN DE CARPETA
+-----------------------
+
+- Solicitar al usuario la ruta de la carpeta que contiene los documentos.
+- Dividir la ruta utilizando el separador correspondiente.
+- Obtener información de la estructura de la carpeta.
+
+
+3. IDENTIFICACIÓN DEL TIPO DE AUTORIZACIÓN
+------------------------------------------
+
+- Determinar el tipo de autorización a partir de la información
+  obtenida de la carpeta.
+- Normalizar el valor para facilitar las comparaciones.
+
+
+4. IDENTIFICACIÓN DEL PROGRAMA ACADÉMICO
+----------------------------------------
+
+- Obtener el código del programa académico.
+- Utilizar una estructura SWITCH para convertir el código
+  en el nombre utilizado por el sistema documental.
+- Contemplar programas profesionales, tecnológicos y
+  especializaciones.
+- Identificar si el programa corresponde a una especialización.
+
+
+5. IDENTIFICACIÓN DEL AÑO
+--------------------------
+
+- Obtener el año asociado al proceso.
+- Utilizar el año para realizar posteriormente la clasificación
+  documental.
+
+
+6. OBTENCIÓN DE ARCHIVOS
+------------------------
+
+- Buscar los archivos PDF disponibles en la carpeta.
+- Crear una lista de documentos pendientes.
+
+
+7. CONTROL DE DOCUMENTOS PROCESADOS
+-----------------------------------
+
+- Recorrer los archivos encontrados.
+- Comprobar si el nombre del archivo contiene el indicador
+  utilizado para identificar documentos ya procesados.
+- Si el documento ya fue procesado:
+      → No agregarlo a la lista de pendientes.
+- Si el documento no ha sido procesado:
+      → Agregarlo a la lista de documentos pendientes.
+
+Esto permite ejecutar nuevamente el robot sin volver a procesar
+documentos que ya fueron cargados.
+
+
+8. CONTROL DEL CONSECUTIVO
+--------------------------
+
+- Solicitar el último consecutivo utilizado en el sistema.
+- Inicializar el consecutivo a partir de ese valor.
+- Incrementar el consecutivo después de procesar cada documento.
+
+
+9. PROCESAMIENTO DE DOCUMENTOS
+------------------------------
+
+Para cada documento pendiente:
+
+    1. Obtener el nombre del archivo.
+    2. Determinar la información de clasificación.
+    3. Seleccionar el programa académico.
+    4. Seleccionar el tipo de documento.
+    5. Seleccionar el año.
+    6. Preparar los campos del documento.
+    7. Cargar el archivo PDF.
+    8. Obtener la fecha correspondiente al documento.
+    9. Asignar el consecutivo.
+   10. Guardar el documento.
+   11. Renombrar el archivo con el indicador de procesamiento
+       y su consecutivo.
+   12. Preparar el formulario para el siguiente documento.
+
+
+10. AUTOMATIZACIÓN MEDIANTE JAVASCRIPT
+--------------------------------------
+
+El flujo utiliza JavaScript para interactuar con elementos
+dinámicos de la interfaz web.
+
+La lógica permite:
+
+- Localizar elementos de selección.
+- Buscar opciones por texto.
+- Realizar desplazamiento dentro de listas dinámicas.
+- Reintentar la búsqueda cuando una opción no se encuentra
+  inicialmente.
+- Seleccionar la opción correspondiente al programa y año.
+
+Para determinados tipos de autorización se utiliza una ruta
+de clasificación diferente antes de seleccionar el año.
+
+
+11. AUTOMATIZACIÓN MEDIANTE POWERSHELL
+--------------------------------------
+
+PowerShell se utiliza para obtener información de fecha del
+archivo que está siendo procesado.
+
+La fecha obtenida se transforma al formato requerido por el
+sistema documental.
+
+
+12. AUTOMATIZACIÓN DE INTERFAZ
+------------------------------
+
+El robot combina diferentes mecanismos de automatización:
+
+- Automatización web.
+- Automatización de interfaz de usuario.
+- Navegación mediante teclado.
+- Portapapeles.
+- Interacción con cuadros de selección de archivos.
+- Control de ventanas del navegador.
+
+
+13. MANEJO DE ERRORES Y CONTINUIDAD
+-----------------------------------
+
+La lógica de documentos pendientes permite que el proceso
+continúe trabajando únicamente sobre archivos que aún no
+han sido procesados.
+
+El uso de variables, condiciones, listas, ciclos y estructuras
+SWITCH permite controlar las diferentes rutas del proceso.
+
+
+14. FINALIZACIÓN
+---------------
+
+Cuando todos los documentos pendientes han sido procesados:
+
+- Se completa la carga de los documentos.
+- Se actualizan los nombres de los archivos procesados.
+- Se muestra un mensaje indicando la finalización del proceso.
+
+
+RESUMEN TÉCNICO
+---------------
+
+El flujo integra:
+
+- Power Automate Desktop
+- Automatización web
+- UI Automation
+- JavaScript
+- PowerShell
+- Microsoft Edge
+- Gestión de archivos
+- Variables
+- Listas
+- Condicionales IF
+- Estructuras SWITCH
+- Bucles FOR EACH
+- Portapapeles
+- Navegación mediante teclado
+- Control de consecutivos
+- Control de documentos procesados
