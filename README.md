@@ -223,7 +223,25 @@ Filtrar archivos procesados
 ```
 
 Esto permite ejecutar nuevamente el robot sobre una carpeta sin volver a cargar automáticamente los documentos que ya fueron procesados.
+## 📸 Capturas del proceso
 
+### Preparación
+
+Vista del flujo principal en Microsoft Power Automate Desktop y sus etapas iniciales.
+
+![Preparación del flujo](screenshots/preparacion.png)
+
+### Procesamiento
+
+Ejemplo de la automatización durante el diligenciamiento de los datos del documento en el sistema de gestión documental.
+
+![Procesamiento del documento](screenshots/procesamiento.png)
+
+### Resultado
+
+Confirmación de finalización del proceso y carga de los documentos.
+
+![Resultado del procesamiento](screenshots/resultado.png)
 ## 🛠️ Tecnologías utilizadas
 
 - **Microsoft Power Automate Desktop**
